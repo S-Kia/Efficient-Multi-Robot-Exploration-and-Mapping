@@ -1,0 +1,15 @@
+<launch>
+    <!-- Argument for TURTLEBOT3_MODEL -->
+    <arg name="robot_model" default="waffle_pi" />
+
+    <!-- Set the TURTLEBOT3_MODEL environment variable globally for all included launch files -->
+    <env name="TURTLEBOT3_MODEL" value="$(arg robot_model)" />
+
+    <!-- Launch the first exploration package (multiple exploration) -->
+    <include file="$(find ros_multi_tb3)/launch/multiple_exploration.launch"/>
+
+    <!-- Launch the second exploration package (three robots) -->
+    <include file="$(find rrt_exploration)/launch/three_robots.launch"/>
+
+</launch>
+

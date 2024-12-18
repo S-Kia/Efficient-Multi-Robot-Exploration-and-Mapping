@@ -1,0 +1,23 @@
+<launch>
+    <!-- Argument for TURTLEBOT3_MODEL -->
+    <arg name="robot_model" default="waffle_pi" />
+
+    <!-- Set the TURTLEBOT3_MODEL globally for all included launch files -->
+    <param name="TURTLEBOT3_MODEL" value="$(arg robot_model)" />
+
+    <!-- Launch TurtleBot3 with Gazebo world -->
+    <include file="$(find frontier_exploration)/launch/single_fb.launch"/>
+
+    <!-- Launch SLAM with GMapping -->
+    <include file="$(find turtlebot3_slam)/launch/turtlebot3_slam.launch">
+        <arg name="slam_methods" value="gmapping" />
+    </include>
+
+    <!-- Launch navigation move_base for the specified robot model -->
+    <include file="$(find turtlebot3_navigation)/launch/move_base.launch"/>
+
+    <!-- Launch frontier exploration with costmap -->
+    <include file="$(find frontier_exploration)/launch/explore_costmap.launch"/>
+
+</launch>
+
