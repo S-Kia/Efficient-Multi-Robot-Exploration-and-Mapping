@@ -3,7 +3,7 @@
     <arg name="robot_model" default="waffle_pi" />
 
     <!-- Set the TURTLEBOT3_MODEL globally for all included launch files -->
-    <param name="TURTLEBOT3_MODEL" value="$(arg robot_model)" />
+    <param name="TURTLEBOT3_MODEL" value="waffle_pi" />
 
     <!-- Launch TurtleBot3 with Gazebo world -->
     <include file="$(find frontier_exploration)/launch/single_fb.launch"/>
